@@ -1,0 +1,8 @@
+# Fichier JSON
+*.json
+
+# Divers
+*.sh
+
+# Dossier Sass
+./assets/Sass/*
