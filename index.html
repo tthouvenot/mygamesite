@@ -3,9 +3,340 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Proza+Libre:ital,wght@0,400;0,500;0,600;0,700;0,800;1,400;1,500;1,600;1,700;1,800&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
     <title>Document</title>
 </head>
 <body>
-    <h1>HELLO WORLD</h1>
+    <header class="header__container">
+        <nav class="header__navigation">
+            <h1 class="header__navigation__title">My Game Site!</h1>
+            <ul class="header__navigation__main">
+                <li class="header__navigation__link">
+                    <a href="">Accueil</a>
+                </li>
+                <li class="header__navigation__link">
+                    <a href="">Motus</a>
+                </li>
+                <li class="header__navigation__link">
+                    <a href="">Le juste prix</a>
+                </li>
+                <li class="header__navigation__link">
+                    <a href="">Le serpent</a>
+                </li>
+            </ul>
+            <ul class="header__navigation__user">
+                <li class="header__navigation__link">
+                    <a href="">Mon compte</a>
+                </li>
+                <li class="header__navigation__link">
+                    <a href="">Déconnecter</a>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="formular__container">
+            <div class="formular__cta">
+                <h2 class="formular__cta__title">Veuillez vous connecter</h2>
+                <h2 class="formular__cta__title invisible">Créer un compte</h2>
+                <img src="" alt="" class="formular__cta__image">
+            </div>
+            <div class="formular__form">
+                <form action="POST" class="formular__form__connect">
+                    <input type="text" id="login" name="login" placeholder="Login" required>
+                    <input type="text" id="password" name="login" placeholder="Mot de passe" required>
+                    <input type="button" value="Se connecter">
+                </form>
+                <form action="POST" class="formular__form__sign-up invisible">
+                    <input type="text" id="firstname" name="firstname" placeholder="Prénom" required>
+                    <input type="text" id="lastname" name="lastname" placeholder="Nom" required>
+                    <input type="text" id="email" name="email" placeholder="E-mail" required>
+                    <input type="text" id="password" name="login" placeholder="Mot de passe" required>
+                    <input type="text" id="confirmed-password" name="confirmed-password" placeholder="Confirmez le mot de passe" required>
+                    <input type="button" value="Se connecter">
+                </form>
+                <div class="formular__change-state">
+                    <div class="formular__change-state--create">
+                        <p>
+                            Nouveau?
+                        </p>
+                        <a href="">Créer un compte</a>
+                    </div>
+                    <div class="formular__change-state--connect invisible">
+                        <p>
+                            Déjà un compte?
+                        </p>
+                        <a href="">Connectez-vous</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="dashboard__container">
+            <h2 class="dashboard__title">
+                Classement
+            </h2>
+            <div class="dashboard__ranking">
+                <div class="dashboard__ranking__navigation">
+                    <ul class="dashboard__ranking__list">
+                        <li class="dashboard__ranking__list--personnal">
+                            <a href="">Personnel</a>
+                        </li>
+                        <li class="dashboard__ranking__list--general">
+                            <a href="">Général</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="dashboard__ranking__table">
+                    <table class="dashboard__ranking__table--motus">
+                        <caption>
+                            Motus
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Classement</th>
+                                <th scope="col">Joueur</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Temps</th>
+                                <th scope="col">Score total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>D. Saez</td>
+                                <td>350</td>
+                                <td>1:02</td>
+                                <td>650</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>B. Dylan</td>
+                                <td>335</td>
+                                <td>2:21</td>
+                                <td>590</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>J. Brel</td>
+                                <td>342</td>
+                                <td>3:00</td>
+                                <td>580</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>M. Solo</td>
+                                <td>290</td>
+                                <td>1:25</td>
+                                <td>378</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Orel</td>
+                                <td>180</td>
+                                <td>4:59</td>
+                                <td>210</td>
+                            </tr>
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Average age</th>
+                                <td>33</td>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                    <table class="dashboard__ranking__table--price-is-right">
+                        <caption>
+                            Le juste prix
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Classement</th>
+                                <th scope="col">Joueur</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Temps</th>
+                                <th scope="col">Score total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>D. Saez</td>
+                                <td>350</td>
+                                <td>1:02</td>
+                                <td>650</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>B. Dylan</td>
+                                <td>335</td>
+                                <td>2:21</td>
+                                <td>590</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>J. Brel</td>
+                                <td>342</td>
+                                <td>3:00</td>
+                                <td>580</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>M. Solo</td>
+                                <td>290</td>
+                                <td>1:25</td>
+                                <td>378</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Orel</td>
+                                <td>180</td>
+                                <td>4:59</td>
+                                <td>210</td>
+                            </tr>
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Average age</th>
+                                <td>33</td>
+                            </tr>   
+                        </tfoot> -->
+                    </table>
+                    <table class="dashboard__ranking__table--snake">
+                        <caption>
+                            Le snake
+                        </caption>
+                        <thead>
+                            <tr>
+                                <th scope="col">Classement</th>
+                                <th scope="col">Joueur</th>
+                                <th scope="col">Score</th>
+                                <th scope="col">Temps</th>
+                                <th scope="col">Score total</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <th scope="row">1</th>
+                                <td>D. Saez</td>
+                                <td>350</td>
+                                <td>1:02</td>
+                                <td>650</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">2</th>
+                                <td>B. Dylan</td>
+                                <td>335</td>
+                                <td>2:21</td>
+                                <td>590</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">3</th>
+                                <td>J. Brel</td>
+                                <td>342</td>
+                                <td>3:00</td>
+                                <td>580</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">4</th>
+                                <td>M. Solo</td>
+                                <td>290</td>
+                                <td>1:25</td>
+                                <td>378</td>
+                            </tr>
+                            <tr>
+                                <th scope="row">5</th>
+                                <td>Orel</td>
+                                <td>180</td>
+                                <td>4:59</td>
+                                <td>210</td>
+                            </tr>
+                        </tbody>
+                        <!-- <tfoot>
+                            <tr>
+                                <th scope="row" colspan="2">Average age</th>
+                                <td>33</td>
+                            </tr>
+                        </tfoot> -->
+                    </table>
+                </div>
+            </div>
+        </div>
+    </main>
+    <footer>
+        <div class="footer__container">
+            <ul class="footer__list--1">
+                <li class="footer__list--1__link">
+                    <a href="">Lorem, ipsum dolor.</a>
+                </li>
+                <li class="footer__list--1__link">
+                    <a href="">Lorem, ipsum dolor.</a>
+                </li>
+                <li class="footer__list--1__link">
+                    <a href="">Lorem, ipsum dolor.</a>
+                </li>
+                <li class="footer__list--1__link">
+                    <a href="">Lorem, ipsum dolor.</a>
+                </li>
+                <li class="footer__list--1__link">
+                    <a href="">Lorem, ipsum dolor.</a>
+                </li>
+            </ul>
+            <ul class="footer__list--2">
+                <li class="footer__list--2__link">
+                    <a href="">Lorem, ipsum.</a>
+                </li>
+                <li class="footer__list--2__link">
+                    <a href="">Lorem, ipsum.</a>
+                </li>
+                <li class="footer__list--2__link">
+                    <a href="">Lorem, ipsum.</a>
+                </li>
+                <li class="footer__list--2__link">
+                    <a href="">Lorem, ipsum.</a>
+                </li>
+                <li class="footer__list--2__link">
+                    <a href="">Lorem, ipsum.</a>
+                </li>
+            </ul>
+            <ul class="footer__list--3">
+                <li class="footer__list--3__link">
+                    <a href="">Lorem ipsum dolor sit.</a>
+                </li>
+                <li class="footer__list--3__link">
+                    <a href="">Lorem ipsum dolor sit.</a>
+                </li>
+                <li class="footer__list--3__link">
+                    <a href="">Lorem ipsum dolor sit.</a>
+                </li>
+                <li class="footer__list--3__link">
+                    <a href="">Lorem ipsum dolor sit.</a>
+                </li>
+                <li class="footer__list--3__link">
+                    <a href="">Lorem ipsum dolor sit.</a>
+                </li>
+            </ul>
+            <ul class="footer__list--4">
+                <li class="footer__list--4__link">
+                    <a href="">lorem</a>
+                </li>
+                <li class="footer__list--4__link">
+                    <a href="">lorem</a>
+                </li>
+                <li class="footer__list--4__link">
+                    <a href="">lorem</a>
+                </li>
+                <li class="footer__list--4__link">
+                    <a href="">lorem</a>
+                </li>
+                <li class="footer__list--4__link">
+                    <a href="">lorem</a>
+                </li>
+            </ul>
+        </div>
+    </footer>
 </body>
 </html>

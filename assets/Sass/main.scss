@@ -1,9 +1,23 @@
+// Variable:
+
+$primary-color: #002642;
+$secondary-color: #69A297;
+$tertiary-color: #8F3985;
+$bckground-color: #FEFCFB;
+$validate-color: #47A025;
+$error-color: #6B0504;
+$text-color:#2F1829;
+$text-secondary-color: #FCF7FF;
+$text-font: "Roboto", sans-serif;
+$title-font: "Proza Libre", sans-serif;
+
 // Reset CSS
 
-* {
+*, body, div{
     margin:0;
     padding: 0;
     box-sizing: border-box;
+    font-family: $text-font;
 }
 
 ol, ul{
@@ -12,4 +26,342 @@ ol, ul{
 
 a{
     text-decoration: none;
+}
+
+
+// Common
+h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
+    color: $text-color;
+}
+
+.invisible{
+    display: none;
+}
+
+// Header
+.header{
+
+    &__container{
+        height: 6.25rem;
+        margin-bottom: 3.125rem;
+    }
+    
+    &__navigation{
+        width: 100%;
+        height: 100%;
+        padding: 0 1em;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 1em;
+        
+        &__title{
+            display: flex;
+            justify-content: flex-start;
+            align-items: center;
+            width: 20%;
+            height: 100%;
+            font-family: $title-font;
+        }
+        
+        &__main{
+            width:50%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap:2em;
+        }
+        
+        &__user{ // TODO: cette élément est caché quand on est pas connecté
+            width: 20%;
+            height: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+        }
+        
+        &__link{
+            height: 100%;
+            width: 100%;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+
+            a{
+                transition: all 0.2s ease-in-out;
+    
+    
+                &:hover{
+                    transform: scale(1.2);
+                    border-bottom: $text-color solid .125rem;
+                }
+            }
+        }
+    }
+}
+
+// Footer
+.footer{
+    
+    &__container{
+    height: 10.25rem;
+    margin-top: 3.125rem;
+    background-color: $primary-color;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    }
+
+    //On définit les numéros des listes présent dans le footer
+    $list-suffixes: 1,2,3,4;
+    
+    @each $suffix in $list-suffixes {
+
+        &__list--#{$suffix} {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-around;
+            align-items: center;
+            gap: 0.5em;
+        }
+
+        &__list--#{$suffix} a {
+            color: $text-secondary-color;
+        }
+    }
+
+}
+
+// INDEX
+.formular{ //TODO: disparait quand on est connecté.
+
+    &__container{
+        height: calc(100vh - 6.25rem - 3.125rem - 10.25rem - 3.125rem);
+        width: 75%;
+        margin: auto;
+        border: #002642 solid 1px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    // TODO: js si on est en mode connexion le CTA est à gauche et le formulaire à droite et si on est en mode création de compte c'est l'inverse
+    &__cta{
+        width: 45%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        background-color: $primary-color;
+
+        &__title{
+            color: $text-secondary-color;
+        }
+    }
+
+    &__form{
+        width:55%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+        &__connect{
+            height: 100%;
+            width: 60%;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 2em;
+
+            & input{
+                width: 100%;
+                height: 2.5em;
+                border: $primary-color solid 1px;
+                border-radius: 0.5em;
+                padding: 0 1em;
+                font-size: 1em;
+
+                &[type="button"]{
+                    background-color: $primary-color;
+                    color: $text-secondary-color;
+                    transition: all 0.2s ease-in-out;
+                    
+                    &:hover{
+                        background-color: $text-secondary-color;
+                        color: $text-color;
+                        border: $primary-color solid 1px;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+        
+        &__sign-up{
+            height: 100%;
+            width: 60%;
+            margin: auto;
+            display: none; //TODO: pensez à passer en flex quand la classe invisible disparait
+            flex-direction: column;
+            justify-content: center;
+            align-items: start;
+            gap: 2em;
+
+            & input{
+                width: 100%;
+                height: 2.5em;
+                border: $primary-color solid 1px;
+                border-radius: 0.5em;
+                padding: 0 1em;
+                font-size: 1em;
+
+                &[type="button"]{
+                    background-color: $primary-color;
+                    color: $text-secondary-color;
+                    transition: all 0.2s ease-in-out;
+                    
+                    &:hover{
+                        background-color: $text-secondary-color;
+                        color: $text-color;
+                        border: $primary-color solid 1px;
+                        transform: scale(1.1);
+                    }
+                }
+            }
+        }
+    }
+    
+    &__change-state{
+        width: 100%;
+        
+        &--create{
+            padding-top: 0.5em;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+
+            a{
+                color: $primary-color;
+                border-bottom: $primary-color solid 1px;
+                transform: all 0.2s ease-in-out;
+
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+        
+        &--connect{
+            padding-top: 0.5em;
+            display: none;  //TODO: pensez à mettre flex quand la classe invisible est absente
+            justify-content: center;
+            align-items: center;
+            gap: 0.5em;
+            
+            a{
+                color: $primary-color;
+                border-bottom: $primary-color solid 1px;
+                transform: all 0.2s ease-in-out;
+        
+                &:hover{
+                    transform: scale(1.05);
+                }
+            }
+        }
+    }
+}
+
+// Dashboard
+
+/* 
+TODO: Le principe du dashboards
+*
+* Lorsque l'utilisateur est connecté il a le choix entre: 
+*   - classement personnel:
+*       --> La colonne joueur n'est pas apparente
+*       --> On affiche ses 5 meilleurs scores
+*   - classement générale:
+*       --> La colonne joueur est apparente
+*       --> On affiche les 5 meilleurs scores
+*       --> si l'utilisateur n'est pas dans les 5 meilleurs alors il y aura une ligne en pointillé et la ligne en dessous celle de l'utilisateur avec son classement générale
+*
+* Concernant le score total:
+*   - on prend le score de l'utilisateur qu'on pondère avec son temps:
+*       - pour le motus et le juste prix en combien de temps il trouve
+*       - pour le snake combien de temps il survit
+*/
+
+.dashboard{
+    &__container{
+        width: 75%;
+        margin: auto;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: start;
+        gap: 2em;
+    }
+
+    &__title{
+        width: 100%;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__ranking{
+        width: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 2em;
+
+        &__list{
+            width: 30%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+
+            //TODO: gérer les boutons de navigation
+        }
+
+        &__table{
+            display: flex;
+            flex-direction: column;
+            gap:2em;
+
+            & caption{
+                font-family: $title-font;
+                font-size: 1.5em;
+                color: $text-secondary-color;
+                text-align: center;
+            }
+
+            & thead tr{
+                padding: 0.5em 0.5em;
+                font-size: 1em;
+                color: $text-secondary-color;
+                text-align: center;
+
+                th{
+                    border: $text-color solid 1px;
+                    background-color: $primary-color;
+                }
+            }
+            & tbody tr{
+                padding: 0.5em 0.5em;
+                font-size: 1em;
+                text-align: center;
+                
+                & th{
+                    color: $text-secondary-color;
+                    border: $text-color solid 1px;
+                    background-color: $primary-color;
+                }
+            }
+        }
+    }
 }
