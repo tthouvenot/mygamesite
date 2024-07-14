@@ -1,15 +1,6 @@
-// Variable:
-
-$primary-color: #002642;
-$secondary-color: #69A297;
-$tertiary-color: #8F3985;
-$bckground-color: #FEFCFB;
-$validate-color: #47A025;
-$error-color: #6B0504;
-$text-color:#2F1829;
-$text-secondary-color: #FCF7FF;
-$text-font: "Roboto", sans-serif;
-$title-font: "Proza Libre", sans-serif;
+//Importations::after
+@import 'variables';
+@import 'mixins';
 
 // Reset CSS
 
@@ -50,15 +41,10 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
         width: 100%;
         height: 100%;
         padding: 0 1em;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 1em;
+        @include flexbox($justify: space-between, $align: center, $gap: 1rem);
         
         &__title{
-            display: flex;
-            justify-content: flex-start;
-            align-items: center;
+            @include flexbox($justify: flex-start, $align: center);
             width: 20%;
             height: 100%;
             font-family: $title-font;
@@ -67,31 +53,24 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
         &__main{
             width:50%;
             height: 100%;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap:2em;
+            @include flexbox($justify: center, $align: center, $gap: 2rem);
         }
         
         &__user{ // TODO: cette élément est caché quand on est pas connecté
             width: 20%;
             height: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
+            @include flexbox($justify: space-around, $align: center);
         }
         
         &__link{
             height: 100%;
             width: 100%;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-
+            @include flexbox($justify: space-around, $align: center);
+            
             a{
                 transition: all 0.2s ease-in-out;
-    
-    
+                
+                
                 &:hover{
                     transform: scale(1.2);
                     border-bottom: $text-color solid .125rem;
@@ -105,79 +84,61 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
 .footer{
     
     &__container{
-    height: 10.25rem;
-    margin-top: 3.125rem;
-    background-color: $primary-color;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
+        height: 10.25rem;
+        margin-top: 3.125rem;
+        background-color: $primary-color;
+        @include flexbox($justify: space-around, $align: center);
     }
-
+    
     //On définit les numéros des listes présent dans le footer
     $list-suffixes: 1,2,3,4;
     
     @each $suffix in $list-suffixes {
-
+        
         &__list--#{$suffix} {
-            display: flex;
-            flex-direction: column;
-            justify-content: space-around;
-            align-items: center;
-            gap: 0.5em;
+            @include flexbox($direction: column, $justify: space-around, $align: center, $gap: 0.5rem);
         }
-
+        
         &__list--#{$suffix} a {
             color: $text-secondary-color;
         }
     }
-
+    
 }
 
 // INDEX
 .formular{ //TODO: disparait quand on est connecté.
-
+    
     &__container{
         height: calc(100vh - 6.25rem - 3.125rem - 10.25rem - 3.125rem);
         width: 75%;
         margin: auto;
         border: #002642 solid 1px;
-        display: flex;
-        justify-content: center;
-        align-items: center;
+        @include flexbox($justify: center, $align: center);
     }
-
+    
     // TODO: js si on est en mode connexion le CTA est à gauche et le formulaire à droite et si on est en mode création de compte c'est l'inverse
     &__cta{
         width: 45%;
         height: 100%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
+        @include flexbox($direction: column, $justify: center, $align: center);
         background-color: $primary-color;
-
+        
         &__title{
             color: $text-secondary-color;
         }
     }
-
+    
     &__form{
         width:55%;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
+        @include flexbox($direction: column, $justify: center, $align: center);
+        
         &__connect{
             height: 100%;
             width: 60%;
             margin: auto;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            gap: 2em;
-
+            @include flexbox($direction: column, $justify: center, $gap: 2rem);
+            
             & input{
                 width: 100%;
                 height: 2.5em;
@@ -185,18 +146,19 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
                 border-radius: 0.5em;
                 padding: 0 1em;
                 font-size: 1em;
-
+                
                 &[type="button"]{
-                    background-color: $primary-color;
-                    color: $text-secondary-color;
-                    transition: all 0.2s ease-in-out;
+                    @include cta;
+                    // background-color: $primary-color;
+                    // color: $text-secondary-color;
+                    // transition: all 0.2s ease-in-out;
                     
-                    &:hover{
-                        background-color: $text-secondary-color;
-                        color: $text-color;
-                        border: $primary-color solid 1px;
-                        transform: scale(1.1);
-                    }
+                    // &:hover{
+                    //     background-color: $text-secondary-color;
+                    //     color: $text-color;
+                    //     border: $primary-color solid 1px;
+                    //     transform: scale(1.1);
+                    // }
                 }
             }
         }
@@ -205,12 +167,9 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
             height: 100%;
             width: 60%;
             margin: auto;
+            @include flexbox($direction: column, $justify: center, $gap: 2rem);
             display: none; //TODO: pensez à passer en flex quand la classe invisible disparait
-            flex-direction: column;
-            justify-content: center;
-            align-items: start;
-            gap: 2em;
-
+            
             & input{
                 width: 100%;
                 height: 2.5em;
@@ -218,18 +177,19 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
                 border-radius: 0.5em;
                 padding: 0 1em;
                 font-size: 1em;
-
+                
                 &[type="button"]{
-                    background-color: $primary-color;
-                    color: $text-secondary-color;
-                    transition: all 0.2s ease-in-out;
+                    @include cta;
+                    // background-color: $primary-color;
+                    // color: $text-secondary-color;
+                    // transition: all 0.2s ease-in-out;
                     
-                    &:hover{
-                        background-color: $text-secondary-color;
-                        color: $text-color;
-                        border: $primary-color solid 1px;
-                        transform: scale(1.1);
-                    }
+                    // &:hover{
+                    //     background-color: $text-secondary-color;
+                    //     color: $text-color;
+                    //     border: $primary-color solid 1px;
+                    //     transform: scale(1.1);
+                    // }
                 }
             }
         }
@@ -240,16 +200,13 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
         
         &--create{
             padding-top: 0.5em;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 0.5em;
-
+            @include flexbox($justify: center, $align: center, $gap: 0.5rem);
+            
             a{
                 color: $primary-color;
                 border-bottom: $primary-color solid 1px;
                 transform: all 0.2s ease-in-out;
-
+                
                 &:hover{
                     transform: scale(1.05);
                 }
@@ -258,16 +215,14 @@ h1, h2, h3, h4, h5, h6, a, p, li, span, strong, em{
         
         &--connect{
             padding-top: 0.5em;
+            @include flexbox($justify: center, $align: center, $gap: 0.5rem);
             display: none;  //TODO: pensez à mettre flex quand la classe invisible est absente
-            justify-content: center;
-            align-items: center;
-            gap: 0.5em;
             
             a{
                 color: $primary-color;
                 border-bottom: $primary-color solid 1px;
                 transform: all 0.2s ease-in-out;
-        
+                
                 &:hover{
                     transform: scale(1.05);
                 }
@@ -300,39 +255,39 @@ TODO: Le principe du dashboards
     &__container{
         width: 75%;
         margin: auto;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: start;
-        gap: 2em;
+        @include flexbox($direction: column, $justify: center, $gap: 1rem);
     }
-
+    
     &__title{
         width: 100%;
-        display: flex;
-        justify-content: center;
+        @include flexbox($justify: center);
     }
-
+    
     &__ranking{
         width: 100%;
-        display: flex;
-        flex-direction: column;
-        gap: 2em;
-
+        @include flexbox($direction: column, $align: stretch, $gap: 1rem);
+        
         &__list{
             width: 30%;
-            display: flex;
-            align-items: center;
-            justify-content: space-around;
-
-            //TODO: gérer les boutons de navigation
+            height: 6.25rem;
+            @include flexbox($justify: space-around, $align: center, $gap: 1rem);
+            
+            & a {
+                @include flexbox($justify: center, $align: center);
+                width: 100%;
+                height: 2.5em;
+                border: $primary-color solid 1px;
+                border-radius: 0.5em;
+                padding: 0 1em;
+                font-size: 1em;
+                
+                @include cta;
+            }            
         }
-
+        
         &__table{
-            display: flex;
-            flex-direction: column;
-            gap:2em;
-
+            @include flexbox($direction: column, $align: stretch, $gap: 2rem);
+            
             & caption{
                 font-family: $title-font;
                 font-size: 1.5em;

@@ -1,0 +1,22 @@
+@mixin flexbox($direction: row, $justify: flex-start, $align: flex-start, $gap: 0){
+    display: flex;
+    flex-direction: $direction;
+    justify-content: $justify;
+    align-items: $align;
+    gap: $gap;
+}
+
+@mixin cta{
+
+    background-color: $primary-color;
+    color: $text-secondary-color;
+    transition: all 0.2s ease-in-out;
+    
+    &:hover{
+        background-color: $text-secondary-color;
+        color: $text-color;
+        border: $primary-color solid 1px;
+        transform: scale(1.1);
+    }
+
+}
